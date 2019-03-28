@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link
+    href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Banka | Login</title>
+</head>
+
+<body>
+  <div class="auth-page">
+    <div class="auth-left">
+      <span class="auth-title">BANKA</span>
+
+      <div class="auth-illustration">
+        <img src="images/Picture-2.jpg" alt="Login illustration">
+      </div>
+    </div>
+
+    <div class="auth-right">
+      <span id="title">Create Account</span>
+
+      <p>You can visit the branch close to you to withdraw or
+        deposit money..</p>
+
+      <div class="auth-details">
+        <form onsubmit="CreateAccount();" class="auth-form">
+          <input class="auth-input" type="text" name="firstname" id="firstname" placeholder="First name">
+
+          <input class="auth-input" type="text" name="lastname" id="lastname" placeholder="Last name">
+
+          <input class="auth-input" type="text" name="accountnumber" id="accountnumber" placeholder="Account Number">
+
+          <input class="auth-input" type="text" name="createdon" id="createdon" placeholder="Created On">
+
+          <div class="input-field">
+            <!-- <label for="inlineFormCustomSelect" class="sr-only">Type</label> -->
+            <select class=" form-control " id="inlineFormCustomSelect" required autofocus>
+              <option value="" disabled selected>Type</option>
+              <option value="1">Savings</option>
+              <option value="2">Current</option>
+            </select>
+          </div>
+
+          <div class="input-field">
+            <!-- <label for="inlineFormCustomSelect" class="sr-only">Status</label> -->
+            <select class=" form-control " id="inlineFormCustomSelect" required autofocus>
+              <option value="" disabled selected>Status</option>
+              <option value="1">Draft</option>
+              <option value="2">Active</option>
+              <option value="3">Dormant</option>
+            </select>
+          </div>
+          <input class="auth-input" type="text" name="Balance" id="Balance" placeholder="Balance">
+
+          <div id="signup-btn"><a href="dashboard.html">CREATE</a></div>
+          <br>
+          <br>
+          <span class="auth-details-footer">Don't have an account? <a href="index.html">Signup</a> </span>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
