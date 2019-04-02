@@ -1,13 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta http-equiv="refresh" content="0; url=https://g-chilie.github.io/Banka-UI/UI/index.html">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link
+    href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="./UI/css/style.css">
+  <title>Banka | Signup</title>
 </head>
+
 <body>
-    
+  <div class="auth-page">
+    <div class="auth-left">
+      <span class="auth-title">BANKA</span>
+
+      <div class="auth-illustration">
+        <img src="./UI/images/signup.jpg" alt="Signup illustration">
+      </div>
+    </div>
+
+    <div class="auth-right">
+      <span id="title">Signup</span>
+
+      <p>This is a core banking application that powers banking operations like account
+        creation, customer deposit and withdrawals.</p>
+
+      <div class="auth-details">
+        <form onsubmit="register();" class="auth-form">
+          <input class="auth-input" type="text" name="firstname" id="firstname" placeholder="First name">
+
+          <input class="auth-input" type="text" name="lastname" id="lastname" placeholder="Last name">
+
+          <input class="auth-input" type="email" name="email" id="email" placeholder="Email">
+
+          <input class="auth-input" type="password" name="password" id="password" placeholder="Password">
+
+          <div id="signup-btn"><a href="./UI/dashboard.html">SIGN UP</a></div>
+
+          <!-- <div id="button"><a href="createAccount.html">CREATE ACCOUNT</a></div> -->
+          <br>
+          <span class="auth-details-footer">Already have an account? <a href="./UI/login.html">Login</a> </span>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
 </body>
+
 </html>
