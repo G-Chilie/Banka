@@ -5,7 +5,7 @@ Banka is a light-weight core banking application that powers banking operations 
 
 The project is managed using [Pivotal Tracker](https://www.pivotaltracker.com). You can view the board [here](https://www.pivotaltracker.com/n/projects/2321462).
 
-You can view the website to Banka UI here: [Banka](https://g-chilie.github.io/Banka-UI/)
+You can view the website to Banka UI here: [Banka](https://g-chilie.github.io/Banka/)
 
 ## Features
 
@@ -22,7 +22,7 @@ You can view the website to Banka UI here: [Banka](https://g-chilie.github.io/Ba
 11. Admin/staff can delete a specific user account.
 12. Admin can create staff and admin user accounts.
 
-##Optional Features
+## Optional Features
 
 1. User can reset password.
 2. Integrate real time email notification upon credit/debit transaction on user account.
