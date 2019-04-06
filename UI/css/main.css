@@ -94,17 +94,21 @@ body {
   #wrapper {
     font-size:16px;
     text-transform:capitalize;
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+    overflow-x: scroll;
   }
 
-  .Acc-details {
-    width: 100%;
+  /* .Acc-details {
+    width: 85%;
     display: flex;
     justify-content: space-around;
     -webkit-flex-wrap: wrap;
     -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
-  }
+  } */
 
  .Acc-details  {
     -webkit-flex-basis: 25%;
@@ -149,7 +153,7 @@ body {
   }
 
   .Acc-details {
-    width:100%;
+    /* width:100%; */
     -webkit-flex-basis: 100%;
     -moz-flex-basis: 100%;
     -ms-flex-basis: 100%;
@@ -384,7 +388,7 @@ body {
     padding: 20px 10px;
 }
 .Acc-details {
-  width: 100%;
+  /* width: 100%; */
   display: flex;
   justify-content: space-around;
   -webkit-flex-wrap: wrap;
