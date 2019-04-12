@@ -4,7 +4,10 @@
   "description": "banka api",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon --exec babel-node --presets env app ",
+    "build": "babel app --out-dir ./dist --source-maps",
+    "dev": "nodemon ./app/server.js --exec babel-node",
+    "lint": "eslint ./app --fix",
+    "start": "npm run build && nodemon ./dist/server.js ",
     "test": "mocha --require babel-register ./test/test.js"
   },
   "repository": {
@@ -18,9 +21,11 @@
   },
   "homepage": "https://github.com/G-Chilie/Banka-UI#readme",
   "dependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
-    "babel-register": "^6.26.0",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "bcrypt": "^3.0.5",
     "body-parser": "^1.18.3",
     "chai": "^4.2.0",
@@ -34,9 +39,11 @@
     "shortid": "^2.2.14"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
     "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "istanbul": "^0.4.5",
     "mocha": "^6.0.2",
     "nodemon": "^1.18.10"
   }
