@@ -8,7 +8,7 @@
     "dev": "nodemon ./app/server.js --exec babel-node",
     "lint": "eslint ./app --fix",
     "start": "npm run build && nodemon ./dist/server.js ",
-    "test": "mocha --require babel-register ./test/test.js"
+    "test": "mocha -r @babel/register  ./app/test/*.js --exit"
   },
   "repository": {
     "type": "git",
