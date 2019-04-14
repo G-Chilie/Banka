@@ -29,4 +29,8 @@ router.post('/accounts', acctValidation, Verifyuser, createAccount);
 router.patch('/accounts/:accountNumber', Verifyuser, ActivatOrDeactivateAccct);
 router.delete('/accounts/:accountNumber', Verifyuser, deleteAccount);
 
+// cashier routes
+// router.post('/transactions/:accountNumber/credit', Verifyuser, creditAccount);
+router.post('/transactions/:accountNumber/debit', Verifyuser, debitAccount);
+
 export default router;
