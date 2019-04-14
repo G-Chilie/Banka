@@ -12,7 +12,7 @@ export default class UserController {
   static createUser(req, res) {
     const password = bcrypt.hashSync(req.body.password, 10);
     const {
-      firstname, lastname, email, type, isAdmin
+      firstname, lastname, email, type, isAdmin,
     } = req.body;
 
     const isExit = userDb.find(user => user.email === email.toLowerCase());
@@ -30,12 +30,12 @@ export default class UserController {
       email,
       type,
       isAdmin,
-      password
+      password,
     };
 
     const { id } = data;
     const token = jwt.sign({
-      id, type, isAdmin, email, firstname, lastname
+      id, type, isAdmin, email, firstname, lastname,
     }, secret, { expiresIn: '10h' });
 
     userDb.push(data);
@@ -69,10 +69,10 @@ export default class UserController {
     }
 
     const {
-      id, type, isAdmin, firstname, lastname
+      id, type, isAdmin, firstname, lastname,
     } = User;
     const token = jwt.sign({
-      id, type, isAdmin, email, firstname, lastname
+      id, type, isAdmin, email, firstname, lastname,
     }, secret, { expiresIn: '10h' });
     return res.status(200).json({
       message: `${firstname} is successfully logged in`,
@@ -81,7 +81,7 @@ export default class UserController {
         id: User.id,
         firstname: User.firstname,
         lastname: User.lastname,
-        email: User.email
+        email: User.email,
       },
     });
   }

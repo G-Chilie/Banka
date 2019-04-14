@@ -8,16 +8,15 @@ import Validator from '../middleware/formValidator';
 import AccountValidator from '../middleware/accountValidator';
 
 
-
 const router = express.Router();
 
 const { createUser, userLogin } = UserController;
 const { createAccount } = AccountController;
 const { userValidation, loginValidation } = Validator;
 const { acctValidation } = AccountValidator;
-const { ActivatOrDeactivateAccct, deleteAccount, creditAccount, debitAccount
-  } = StaffController;
-
+const {
+  ActivatOrDeactivateAccct, deleteAccount, creditAccount, debitAccount,
+} = StaffController;
 
 
 // User routes
@@ -30,7 +29,7 @@ router.patch('/accounts/:accountNumber', Verifyuser, ActivatOrDeactivateAccct);
 router.delete('/accounts/:accountNumber', Verifyuser, deleteAccount);
 
 // cashier routes
-// router.post('/transactions/:accountNumber/credit', Verifyuser, creditAccount);
+router.post('/transactions/:accountNumber/credit', Verifyuser, creditAccount);
 router.post('/transactions/:accountNumber/debit', Verifyuser, debitAccount);
 
 export default router;
