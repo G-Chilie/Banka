@@ -32,7 +32,6 @@ export default class Validators {
         }
   
         next();
-        return true;
       } catch (error) {
         return res.status(400).json({
           status: 400,
