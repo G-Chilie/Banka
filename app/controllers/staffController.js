@@ -1,5 +1,5 @@
 import accountDb from '../db/account';
-// import transactionDb from '../db/transaction';
+import transactionDb from '../db/transaction';
 
 export default class StaffController {
   static ActivatOrDeactivateAccct(req, res) {
