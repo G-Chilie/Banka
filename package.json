@@ -7,7 +7,7 @@
     "build": "babel app --out-dir ./dist --source-maps",
     "dev": "nodemon ./app/server.js --exec babel-node",
     "lint": "eslint ./app --fix",
-    "start": "npm run build && nodemon ./dist/server.js ",
+    "start": "npm run build && node ./dist/server.js ",
     "test": "mocha -r @babel/register  ./app/test/*.js --exit"
   },
   "repository": {
