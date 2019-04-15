@@ -21,3 +21,92 @@ You can view the website to Banka UI here: [Banka](https://g-chilie.github.io/Ba
 10. Admin/staff can activate or deactivate an account.
 11. Admin/staff can delete a specific user account.
 12. Admin can create staff and admin user accounts.
+
+## API ENDPOINTS
+
+| Ressource URL | Methods  | Description  |
+| ------- | --- | --- |
+| / | GET | The index (welcome message) |
+| /api/v1/auth/signup | POST | sign up |
+| /api/v1/auth/login | POST | login |
+| /api/v1/accounts | POST | Create bank account  |
+| /api/v1//accounts/:accountNumber | PATCH | activate or deactivate an account |
+| /api/v1/accounts/:accountNumber | DELETE | delete an account |
+| /api/v1//transactions/:accountNumber/credit | POST | credit an account |
+| /api/v1/meetups/transactions/:accountNumber/debit| POST | debit an account |
+
+
+
+### Language
+```
+*Javascript*
+```
+### Server Environment
+```
+ *NodeJS* (run time Environment for running JS codes)
+ ```
+### Framework
+```
+ *Express* (used for building fast APIs)
+ ```
+### Testing Framework
+```
+ *Mocha* and *Chai*
+ ```
+### Style Guide
+```
+*Airbnb*
+```
+### Continuous Integration
+```
+Travis CI
+```
+### Test Coverage
+```
+nyc
+```
+### Git badge
+```
+coveralls
+```
+### Deployment
+```
+Heroku
+```
+### APP link Example
+
+[heroku link](https://dashboard.heroku.com/apps/banka-chi)
+
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+## Prerequisites
+To install the software on your local machine, you need first to clone the repository or download the zip file and once this is set up you are going to need this packages. [NodeJS]
+
+```
+ [Node Package Installer - NPM] this usually comes with Node or YARN in case NPM doesn't work.
+```
+
+## Installing
+The installation of this application is fairly straightforward, After cloning this repository to your local machine,CD into the package folder using your terminal, run the following
+
+```
+> npm install
+```
+
+It will install the node_modules which will help you run the project on your local machine.
+
+## Run the server
+```
+> npm start
+```
+## Run the test
+```
+> npm test
+```
+
+
+---
+
+## License & copyright
+Copyright (c) chinweoke okonkwo, Software developer

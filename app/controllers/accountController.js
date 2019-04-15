@@ -22,7 +22,7 @@ export default class Account {
       });
     }
 
-    const acctExist = accountDb.filter(
+    const acctExist = accountDb.find(
       acct => acct.email === email.toLowerCase(),
     );
 
