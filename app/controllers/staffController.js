@@ -149,7 +149,7 @@ export default class StaffController {
     transactionDb.push(transaction);
     return res.status(201).json({
       status: 201,
-      message: `your account ${accountNumber} has been credited with ${amount} on ${createdOn}`,
+      message: `your account ${accountNumber} has been debited with ${amount} on ${createdOn}`,
       data: transaction,
     });
   }
