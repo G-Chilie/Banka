@@ -63,7 +63,8 @@ body {
 }
 
 .auth-right #title {
-    font-size: 35px;
+    font-size: 17px;
+    font-weight: bold;
 }
 
 .auth-right p {
@@ -117,7 +118,7 @@ body {
     outline: none !important;
     box-shadow: none !important;   */
     background: transparent;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     
 }
 
@@ -191,6 +192,8 @@ a {
     text-decoration: none;
     color: #3359DF;
     font-weight: bold;
+    font-size: large;
+
 }
 
 /* Bank Account Start */
@@ -469,8 +472,9 @@ a {
     }
 
     .auth-right #title {
-        font-size: 30px;
+        font-size: 17px;
         align-self: center;
+        font-weight: bold;
     }
 
     .auth-details-footer {
