@@ -64,7 +64,7 @@ body {
 
 .auth-right #title {
     font-size: 17px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 .auth-right p {
@@ -166,7 +166,6 @@ a {
     color: #3359DF;
     font-weight: bold;
     font-size: large;
-
 }
 
 /* Bank Account Start */
@@ -385,6 +384,10 @@ a {
 .menu-item:hover {
     color: #3359DF;
 }
+#account{
+    margin: auto;
+}
+
 
 /* Dashboard End */
 
