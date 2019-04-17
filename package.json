@@ -8,7 +8,8 @@
     "dev": "nodemon ./app/server.js --exec babel-node",
     "lint": "eslint ./app --fix",
     "start": "npm run build && node ./dist/server.js ",
-    "test": "mocha -r @babel/register  ./app/test/*.js --exit"
+    "test": "nyc --reporter=html --reporter=text mocha --require @babel/register ./app/test/*.js --timeout 50000  --exit",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
@@ -39,12 +40,15 @@
     "shortid": "^2.2.14"
   },
   "devDependencies": {
+    "coveralls": "^3.0.3",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.16.0",
     "istanbul": "^0.4.5",
     "mocha": "^6.0.2",
-    "nodemon": "^1.18.10"
+    "mocha-lcov-reporter": "^1.3.0",
+    "nodemon": "^1.18.10",
+    "nyc": "^14.0.0"
   }
 }
