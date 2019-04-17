@@ -96,10 +96,6 @@ body {
     background: none;
     border: none;
     border-bottom: 1px solid #e6e6e6;
-    /* transition: .25s border ease-in-out;
-    /* border-radius: 0 !important;
-    outline: none !important;
-    box-shadow: none !important; */ 
     background: transparent;
     box-sizing: border-box;
 }
@@ -113,33 +109,10 @@ body {
     background: none;
     border: none;
     border-bottom: 1px solid #e6e6e6;
-    /* transition: .25s border ease-in-out;
-    border-radius: 0 !important;
-    outline: none !important;
-    box-shadow: none !important;   */
     background: transparent;
-    box-sizing: border-box;
     
 }
 
-
-
-
-/* .auth-form button {
-    margin-top: 10px;
-    padding: 10px;
-    width: 100%;
-    box-sizing: border-box;
-    color: white;
-    background: #3359DF;
-    border: none;
-    border-radius: 0.25rem;
-    font-weight: bold;
-}
-
-.auth-form button:hover {
-    background: #1976d2;
-} */
 
 #signup-btn {
     width: 100%;
@@ -473,8 +446,9 @@ a {
     }
 
     .auth-right #title {
-        font-size: 30px;
+        font-size: 17px;
         align-self: center;
+        font-weight: bold;
     }
 
     .auth-details-footer {
