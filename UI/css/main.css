@@ -97,18 +97,8 @@ body {
     width: 95%;
     margin: auto;
     margin-top: 15px;
-    overflow-x: scroll;
   }
 
-  /* .Acc-details {
-    width: 85%;
-    display: flex;
-    justify-content: space-around;
-    -webkit-flex-wrap: wrap;
-    -moz-flex-wrap: wrap;
-    -ms-flex-wrap: wrap;
-    flex-wrap: wrap;
-  } */
 
  .Acc-details  {
     -webkit-flex-basis: 25%;
@@ -123,12 +113,9 @@ body {
     background-color: #fff;
     padding-left: 10px;
     padding-right: 10px;
-    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    -moz-border-radius: 0 10px 10px 10px;
-    -webkit--radius: 0 10px 10px 10px;
-    border-radius: 0 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit--radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
   }
 
   .Acc-details .main-details {
@@ -138,18 +125,15 @@ body {
     flex-basis: 65%;
     padding: 15px 0;
     text-align: left;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: none;
     -webkit-transition: 0.3s;
     transition: 0.3s;
     background-color: #fff;
     padding-left: 10px;
     padding-right: 10px;
-    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    -moz-border-radius: 0 10px 10px 10px;
-    -webkit--radius: 0 10px 10px 10px;
-    border-radius: 0 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit--radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
   }
 
   .Acc-details {
@@ -227,19 +211,16 @@ body {
     flex-basis: 25%;
     padding: 15px 0;
     text-align: left;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(15, 15, 15, 0.1);
     -webkit-transition: 0.3s;
     transition: 0.3s;
     background-color: #fff;
     padding-left: 10px;
     padding-right: 10px;
-    
-    -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-    -moz-border-radius: 0 10px 10px 10px;
-    -webkit--radius: 0 10px 10px 10px;
-    border-radius: 0 10px 10px 10px;
+    box-shadow: 0 0 2px 0 rgba(119, 119, 119, 0.2);
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit--radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
   }
 
  .item {
@@ -261,10 +242,8 @@ body {
   }
   .users-list{
     width:100%;
-    padding:15px;
-    border: 1px solid rgba(0, 0, 0, 0.04);
     margin-top:20px;
-    overflow-x:scroll;
+    align-content: center
 }
 .users-list table{	
     background-color:inherit;
@@ -275,7 +254,7 @@ body {
 }
 .users-list table thead th{
     padding:10px;
-    font-size:16px;
+    font-size:12px;
 }
 .users-list table tbody{		
     background-color:#fff;
@@ -287,9 +266,18 @@ body {
     background-color:rgba(0, 0, 0, 0.3);
 }
 .users-list table tbody tr td{
-    padding:8px;
-    font-size:12px;
+    padding:12px;
+    font-size:15px;
 }
+#view{
+ background: blue;
+ color: white;
+ padding:10px;
+}
+#view:hover{
+  background: blue;
+  color: white;
+ }
 
 .completed-trasact .item.alt{
     background: #EE4327;
@@ -299,9 +287,6 @@ body {
 /*-----------PERSONAL ACCOUNT--------------*/
 .side-details .account-filter-box {
     border: 1px solid rgba(0, 0, 0, 0.05);
-    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    -moz-box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
     width: 100%;
 }
 .side-details .account-filter-box .filter-header {
@@ -403,18 +388,15 @@ body {
   flex-basis: 25%;
   padding: 15px 0;
   text-align: left;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(49, 49, 49, 0.1);
   -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: #fff;
   padding-left: 10px;
   padding-right: 10px;
-  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  -moz-border-radius: 0 10px 10px 10px;
-  -webkit--radius: 0 10px 10px 10px;
-  border-radius: 0 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit--radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 .Acc-details .main-details {
   -webkit-flex-basis: 65%;
@@ -423,18 +405,15 @@ body {
   flex-basis: 65%;
   padding: 15px 0;
   text-align: left;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: none;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   background-color: #fff;
   padding-left: 10px;
   padding-right: 10px;
-  -webkit-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  -moz-box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
-  -moz-border-radius: 0 10px 10px 10px;
-  -webkit--radius: 0 10px 10px 10px;
-  border-radius: 0 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit--radius: 10px 10px 10px 10px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 /*  */
