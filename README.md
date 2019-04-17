@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/G-Chilie/Banka.svg?branch=develop)](https://travis-ci.org/G-Chilie/Banka)  [![Coverage Status](https://coveralls.io/repos/github/G-Chilie/Banka/badge.svg?branch=develop)](https://coveralls.io/github/G-Chilie/Banka?branch=develop)
+
 
 # Banka-UI
 
