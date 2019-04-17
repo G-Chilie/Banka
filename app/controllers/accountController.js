@@ -25,8 +25,9 @@ export default class Account {
     const acctExist = accountDb.find(
       acct => acct.email === email.toLowerCase(),
     );
-
-    if (!acctExist.length < 1) {
+    console.log(acctExist);
+    console.log(accountDb);
+    if (acctExist) {
       return res.status(409).json({
         message: 'account  already exist',
       });

@@ -13,7 +13,6 @@ const nonExistingUserEmail = 'john@gamil.com';
 const type = 'User';
 const password = 'password';
 const existingPassword = 'admin';
-const wrongPassword = 'wrongPassword';
 const isAdmin = false;
 
 describe('Users routes', () => {
@@ -131,22 +130,6 @@ describe('Users routes', () => {
         .send({
           email: nonExistingUserEmail,
           password,
-        })
-        .end((err, res) => {
-          res.should.have.status(404);
-          res.body.should.be.a('object');
-          res.body.should.have.property('message');
-          done();
-        });
-    });
-
-    it('Should return login error with satus 404', (done) => {
-      chai
-        .request(app)
-        .post('/api/v1/auth/login')
-        .send({
-          email: existingUserEmail,
-          password: wrongPassword,
         })
         .end((err, res) => {
           res.should.have.status(404);
