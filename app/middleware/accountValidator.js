@@ -35,7 +35,7 @@ export default class Validators {
     } catch (error) {
       return res.status(400).json({
         status: 400,
-        error: 'JSON object should contain {  type, status, openingBalance }',
+        error: 'Email is required',
       });
     }
   }
