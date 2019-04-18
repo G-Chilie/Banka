@@ -10,8 +10,7 @@ export default class StaffController {
 
     if (!statusOptions.includes(status)) {
       return res.status(401).json({
-        status: status !== 'dormant',
-        statuss: 401,
+        status: 401,
         message: 'Invalid account status field, status should be "dormant" or "active"',
       });
     }
@@ -89,8 +88,7 @@ export default class StaffController {
       });
     }
 
-    const acctExist = accountDb
-      .find(account => account.accountNumber.toString() === accountNumber.toString());
+    const acctExist = accountDb.find((account) => account.accountNumber.toString() === accountNumber.toString());
 
     if (!acctExist) {
       return res.status(404).json({
@@ -99,8 +97,7 @@ export default class StaffController {
       });
     }
 
-    const transactionExist = transactionDb
-      .find(trans => trans.accountNumber.toString() === accountNumber.toString());
+    const transactionExist = transactionDb.find((trans) => trans.accountNumber.toString() === accountNumber.toString());
 
     if (!transactionExist) {
       const { openingBalance } = acctExist;
@@ -141,9 +138,9 @@ export default class StaffController {
 
     newBalance = (+oldBalance) - (+amount);
     transaction = { ...transactionExist, oldBalance, newBalance };
-    transactionDb.forEach((trans, index, object) => {
+    transactionDb.forEach((trans, index, arr) => {
       if (trans.accountNumber.toString() === accountNumber.toString()) {
-        object.splice(index, 1);
+        arr.splice(index, 1);
       }
     });
     transactionDb.push(transaction);
