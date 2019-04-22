@@ -1,35 +1,20 @@
 import express from 'express';
 
-import AccountController from '../controllers/accountController';
-import StaffController from '../controllers/staffController';
+// import AccountController from '../controllers/accountController';
+// import StaffController from '../controllers/staffController';
 import UserController from '../controllers/userController';
-import Verifyuser from '../helpers/auth';
-import Validator from '../middleware/formValidator';
-import AccountValidator from '../middleware/accountValidator';
+import { schema, validate } from '../middleware/schemaValidators';
+// import Auth from '../middleware/auth';
+// import urlMiddleware from '../middleware/url';
 
 
 const router = express.Router();
 
-const { createUser, userLogin } = UserController;
-const { createAccount } = AccountController;
-const { userValidation, loginValidation } = Validator;
-const { acctValidation } = AccountValidator;
-const {
-  ActivatOrDeactivateAccct, deleteAccount, creditAccount, debitAccount,
-} = StaffController;
+const {createUser} = UserController;
 
 
-// User routes
-router.post('/auth/signup', userValidation, createUser);
-router.post('/auth/login', loginValidation, userLogin);
-router.post('/accounts', acctValidation, Verifyuser, createAccount);
 
-// admin routes
-router.patch('/accounts/:accountNumber', Verifyuser, ActivatOrDeactivateAccct);
-router.delete('/accounts/:accountNumber', Verifyuser, deleteAccount);
-
-// cashier routes
-router.post('/transactions/:accountNumber/credit', Verifyuser, creditAccount);
-router.post('/transactions/:accountNumber/debit', Verifyuser, debitAccount);
+// client routes
+router.post('/auth/signup', validate(schema.userSchema), createUser);
 
 export default router;
