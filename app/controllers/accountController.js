@@ -72,6 +72,41 @@ class Account {
     }
   }
 
+  // Specific Transaction
+
+  static async getTransaction(req, res) {
+    const user = auth.tokenBearer(req);
+    if (!user.isAdmin && user.type.toLowerCase() === 'user') {
+      const query = 'SELECT * FROM transactions WHERE transaction_id = $1';
+
+
+      try {
+        const { rows } = await pool.query(query, [req.params.transactionId]);
+        if (!rows[0]) {
+          return res.status(404).send({
+            status: 404,
+            error: 'The selected transaction does not exist',
+          });
+        }
+
+        return res.status(200).send({
+          status: 200,
+          data: rows[0],
+        });
+      } catch (error) {
+        return res.status(500).send({
+          status: 500,
+          error: error.message,
+        });
+      }
+    } else {
+      return res.status(401).json({
+        status: 401,
+        error: 'you must be a user to perform this task',
+      });
+    }
+  }
+
 }
 
 export default Account;
