@@ -223,5 +223,46 @@ export default class StaffController {
         message: 'you must be a staff (Admin) to perform this task',
       });
     }
+
+    //  View all bank account
+
+    static async getAllAccounts(req, res) {
+      const user = auth.tokenBearer(req);
+      if (user.isAdmin && user.type.toLowerCase() === 'staff') {
+        let allAccountsQuery;
+        let values = [];
+        if (req.query.status) {
+          allAccountsQuery = 'SELECT * FROM accounts WHERE status = $1 ORDER BY createdOn DESC';
+          values = [req.query.status];
+        } else {
+          allAccountsQuery = 'SELECT * FROM accounts ORDER BY createdOn DESC';
+        }
+  
+  
+        try {
+          const { rows } = await pool.query(allAccountsQuery, values);
+          if (!rows || rows.length === 0) {
+            return res.status(404).send({
+              status: 404,
+              message: 'No account found',
+            });
+          }
+  
+          return res.status(200).send({
+            status: 200,
+            data: rows,
+          });
+        } catch (error) {
+          return res.status(500).send({
+            status: 500,
+            error: 'Unable to get all account details!! Server Error, Please Try Again',
+          });
+        }
+      }
+      return res.status(401).send({
+        status: 401,
+        message: 'you must be a staff (Admin) to perform this task',
+      });
+    }
 }
 
