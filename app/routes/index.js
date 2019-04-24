@@ -1,7 +1,7 @@
 import express from 'express';
 
-import AccountController from '../controllers/accountController';
-import StaffController from '../controllers/staffController';
+import Account from '../controllers/accountController';
+import TransactionController from '../controllers/transactionController';
 import UserController from '../controllers/userController';
 import { schema, validate } from '../middleware/schemaValidators';
 import Auth from '../middleware/auth';
@@ -11,11 +11,11 @@ import urlMiddleware from '../middleware/url';
 const router = express.Router();
 
 const { createUser, loginUser } = UserController;
-const { createAccount, getAllTransactions, getTransaction } = AccountController;
+const { createAccount, getAllTransactions, getTransaction, accountDetails} = Account;
 const {
   ActivatOrDeactivateAccct, getAllAccounts, deleteAccount, creditAccount,
-  debitAccount, getUserAccounts,
-} = StaffController;
+  debitAccount, getUserAccounts, 
+} = TransactionController;
 const { verifyToken } = Auth;
 const { verifyAccountNumber } = urlMiddleware;
 
@@ -23,8 +23,10 @@ const { verifyAccountNumber } = urlMiddleware;
 router.post('/auth/signup', validate(schema.userSchema), createUser);
 router.post('/auth/login', validate(schema.loginSchema), loginUser);
 router.post('/accounts', validate(schema.accountsSchema), verifyToken, createAccount);
+router.get('/accounts/:accountNumber', verifyAccountNumber, verifyToken, accountDetails);
 router.get('/accounts/:accountNumber/transactions', verifyAccountNumber, verifyToken, getAllTransactions);
 router.get('/transactions/:transactionId', verifyToken, getTransaction);
+
 
 // cashier routes
 router.post('/transactions/:accountNumber/credit', validate(schema.transactionsSchema), verifyAccountNumber, verifyToken, creditAccount);

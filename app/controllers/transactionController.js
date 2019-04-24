@@ -3,7 +3,7 @@
 import pool from '../db';
 import auth from '../middleware/auth';
 
-export default class StaffController {
+export default class TransactionController {
     static async creditAccount(req, res) {
         const user = auth.tokenBearer(req);
         const { userId: cashier } = user;
@@ -31,8 +31,7 @@ export default class StaffController {
                             data: 'Account does not exist',
                         });
                     }
-                    // postgres convert camel cases to lower case, nolonger openingBalance and accountBalance
-                    // but openingbalance and accountbalance
+              
                     oldBalance = row.openingbalance;
                 } else {
                     oldBalance = row.accountbalance;
@@ -95,8 +94,6 @@ export default class StaffController {
                   data: 'Account does not exist',
                 });
               }
-              // postgres convert camel cases to lower case, nolonger openingBalance and accountBalance
-              // but openingbalance and accountbalance
               oldBalance = row.openingbalance;
             } else {
               oldBalance = row.accountbalance;

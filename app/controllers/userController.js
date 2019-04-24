@@ -4,7 +4,6 @@ import helpers from '../middleware/helpers';
 
 class UserController {
   static async createUser(req, res) {
-    // hash password to be dsaved on the database
     const hashedPassword = helpers.hashPassword(req.body.password);
 
     const newUserQuery = `INSERT INTO
