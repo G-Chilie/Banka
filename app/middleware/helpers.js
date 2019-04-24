@@ -26,7 +26,7 @@ const helpers = {
  * inorder to authenticate a particular user
  * @param {*} id
  * @param {*} email
- * @param {*} adminStatus
+ * @param {*} isAdmin
  * @returns
  * token
  */

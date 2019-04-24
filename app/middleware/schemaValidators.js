@@ -32,7 +32,7 @@ const schema = {
 
 };
 
-function validate(schema) {
+function validate( schema) {
   return (req, res, next) => {
     Joi.validate(req.body, schema, { abortEarly: false }, (err) => {
       if (err) {
