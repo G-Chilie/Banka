@@ -1,8 +1,15 @@
 import jwt from 'jsonwebtoken';
 import pool from '../db';
 
-const auth = {
-  async verifyToken(req, res, next) {
+export function tokenBearer(req) {
+  const secret = process.env.SECRET || 'secret';
+  const token = req.headers.authorization.split(' ')[1];
+  const payload = jwt.verify(token, secret);
+  return payload;
+}
+
+export default class AuthMiddleware {
+  static async verifyToken(req, res, next) {
     const secret = process.env.SECRET || 'secret';
     const bearerToken = req.headers.authorization || '';
     const token = bearerToken.split(' ')[1]
@@ -30,14 +37,48 @@ const auth = {
         error: error.message,
       });
     }
-  },
+  }
 
-  tokenBearer(req) {
-    const secret = process.env.SECRET || 'secret';
-    const token = req.headers.authorization.split(' ')[1];
-    const payload = jwt.verify(token, secret);
-    return payload;
-  },
+  static isAdmin(req, res, next) {
+    const payload = tokenBearer(req)
+    const { isAdmin, type } = payload
+    if (isAdmin && type.toLowerCase() === 'staff') {
+      req.user = payload
+      next()
+    } else {
+      return res.status(401).json({
+        status: 401,
+        error: 'Access denied',
+      });
+    }
+  }
+
+  static isCashier(req, res, next) {
+    const payload = tokenBearer(req)
+    const { isAdmin, type } = payload
+    if (!isAdmin && type.toLowerCase() === 'staff') {
+      req.user = payload
+      next()
+    } else {
+      return res.status(401).json({
+        status: 401,
+        error: 'Access denied',
+      });
+    }
+  }
+
+  static isCustomer(req, res, next) {
+    const payload = tokenBearer(req)
+    const { isAdmin, type } = payload
+    if (!isAdmin && type.toLowerCase() === 'user') {
+      req.user = payload
+      next()
+    } else {
+      return res.status(401).json({
+        status: 401,
+        error: 'Access denied',
+      });
+    }
+  }
 };
 
-export default auth;
