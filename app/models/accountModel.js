@@ -32,7 +32,7 @@ export default class AccountModel {
         try {
             const { rows } = await pool.query(query, values);
             if (!rows[0]) {
-                return res.status(204).send({
+                return res.status(200).send({
                     status: 204,
                     data: [],
                 });
@@ -49,7 +49,7 @@ export default class AccountModel {
         try {
             const { rows } = await pool.query(allAccountsQuery, values);
             if (!rows[0]) {
-                return res.status(204).send({
+                return res.status(200).send({
                     status: 204,
                     data: [],
                 });
@@ -89,7 +89,7 @@ export default class AccountModel {
         try {
             const { rows } = await pool.query(allAccountsQuery, values);
             if (!rows[0]) {
-                return res.status(204).send({
+                return res.status(200).send({
                     status: 204,
                     data: [],
                 });

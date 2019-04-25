@@ -129,7 +129,7 @@ describe('User', function () {
       res.body.error.should.equal('invalid signature');
     });
 
-    it('Should return no tranactions for this account error with status 204', async () => {
+    it('Should return no tranactions for this account with status 204', async () => {
       const res = await chai
         .request(app)
         .get('/api/v1/accounts/909090909/transactions')

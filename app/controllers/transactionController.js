@@ -14,14 +14,11 @@ export default class TransactionController {
         const createdOn = new Date();
         const lastTransaction = await transactionModel.getLastTransaction(req, res)
         if (lastTransaction) {
-            console.log(lastTransaction)
             oldBalance = lastTransaction.accountbalance;
         } else {
             const bankAccount = await accountModel.getAccount(req, res)
-            console.log(bankAccount)
             oldBalance = bankAccount[0].openingbalance;
         }
-        console.log(oldBalance)
         const accountBalance = ((+oldBalance) + (+amount)).toFixed(2)
         const data = { type: 'credit', amount, cashier, accountBalance, createdOn }
         const newTransaction = await transactionModel.create(req, data)
