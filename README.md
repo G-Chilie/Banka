@@ -1,4 +1,6 @@
-[![Build Status](https://travis-ci.org/G-Chilie/Banka.svg?branch=develop)](https://travis-ci.org/G-Chilie/Banka)  [![Coverage Status](https://coveralls.io/repos/github/G-Chilie/Banka/badge.svg?branch=develop)](https://coveralls.io/github/G-Chilie/Banka?branch=develop)
+[![Build Status](https://travis-ci.org/G-Chilie/Banka.svg?branch=develop)](https://travis-ci.org/G-Chilie/Banka)  [![Coverage Status](https://coveralls.io/repos/github/G-Chilie/Banka/badge.svg?branch=develop)](https://coveralls.io/github/G-Chilie/Banka?branch=develop) [![Maintainability](https://api.codeclimate.com/v1/badges/990acb5b35ea4b885c03/maintainability)](https://codeclimate.com/github/G-Chilie/Banka/maintainability)
+
+
 
 
 # Banka-UI

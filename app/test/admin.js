@@ -1,7 +1,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../server';
-import constants from 'constants';
+import constants from './constants';
 
 chai.use(chaiHttp);
 chai.should();
@@ -178,3 +178,4 @@ describe('Admin', function () {
     });
   });
 });
+

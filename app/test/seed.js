@@ -1,5 +1,5 @@
-import pool from '';
-import tables from '/db/schema';
+import pool from '../db';
+import tables from '../db/schema';
 
 (async function () {
   console.log('seeding test database with dummy data...');
@@ -10,3 +10,4 @@ import tables from '/db/schema';
   }
   console.log('seeding completed');
 }());
+

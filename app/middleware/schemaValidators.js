@@ -18,7 +18,6 @@ const schema = {
 
   accountsSchema: Joi.object().keys({
     type: Joi.string().required(),
-    status: Joi.string().required(),
     openingBalance: Joi.number().required(),
   }),
 
