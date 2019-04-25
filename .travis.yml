@@ -4,14 +4,10 @@ node_js:
 cache:
   directories:
     - "node_modules"
+env:
+  -SECRET=111112222233333
+  -NODE_ENV=development
+  -DATABASE_URL=postgres://xdplmqap:wsGylY7JdrpJHf2OsqjtfA7RVrkfOBGT@isilo.db.elephantsql.com:5432/xdplmqap
 
 after_success: npm run coverage
 
-services: 
-  - postgresql
-
-addons:
-  postgresql: "9.4"
-
-before_script:
-  - psql -c 'create database test;' -U postgres
