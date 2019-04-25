@@ -7,3 +7,11 @@ cache:
 
 after_success: npm run coverage
 
+services: 
+  - postgresql
+
+addons:
+  postgresql: "9.4"
+
+before_script:
+  - psql -c 'create database test;' -U postgres
