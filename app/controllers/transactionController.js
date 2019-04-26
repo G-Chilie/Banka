@@ -62,7 +62,7 @@ static async debitAccount(req, res) {
         if (newTransaction.length) {
             return res.status(200).json({
                 status: 200,
-                message: `The account ${req.params.accountNumber} has been credited with ${amount} on ${createdOn}`,
+                message: `The account ${req.params.accountNumber} has been debited with ${amount} on ${createdOn}`,
                 data: newTransaction[0],
             });
         }

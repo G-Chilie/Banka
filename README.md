@@ -11,6 +11,18 @@ The project is managed using [Pivotal Tracker](https://www.pivotaltracker.com). 
 
 You can view the website to Banka UI here: [Banka](https://g-chilie.github.io/Banka/)
 
+### Deployment
+```
+Heroku
+```
+### APP link Example
+
+[heroku link](banka-chi.herokuapp.com)
+
+## API Documentation
+
+My Swagger API documentation can be found [here](banka-chi.herokuapp.com/api/v1/docs/)
+
 ## Features
 
 1. User (client) can sign up.
@@ -73,13 +85,6 @@ nyc
 ```
 coveralls
 ```
-### Deployment
-```
-Heroku
-```
-### APP link Example
-
-[heroku link](https://dashboard.heroku.com/apps/banka-chi)
 
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.

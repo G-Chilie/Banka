@@ -5,7 +5,7 @@ export default class AccountModel {
         const owner = userId;
         const status = 'active'
         const allowedTypes = ['savings', 'current']
-        const accountNo = Math.floor(Math.random() * 1000000000);
+        const accountNo = Math.random().toString().slice(2, 11);
         const createdOn = new Date();
         const { type, openingBalance } = req.body;
         const createQuery = `INSERT INTO accounts(accountNo, createdOn, owner, type, status, openingBalance)
