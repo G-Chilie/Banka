@@ -2,8 +2,7 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import router from './routes';
-import swaggerui from 'swagger-ui-express';
-import swaggerDoc from '../swagger.json'
+
 
 dotenv.config();
 
@@ -14,8 +13,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use('/api/v1', router);
-router.use('/api/v1/docs', swaggerui.serve, swaggerui.setup(swaggerDoc));
-
 app.get('/', (req, res) => {
   res.status(200).send(
     'Welcom to Banka',
