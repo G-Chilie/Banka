@@ -3,11 +3,12 @@ import helpers from '../middleware/helpers';
 
 export default class UserModel {
     static async create(req, res) {
+        const type = 'user' ;   
         const hashedPassword = helpers.hashPassword(req.body.password);
         const newUserQuery = `INSERT INTO users(firstname, lastname, email, type, password) VALUES($1, $2, $3, $4, $5) 
                                 RETURNING user_id, firstname, lastname, email, type`;
-        const { firstname, lastname, email, type } = req.body
-        const values = [firstname.trim(), lastname.trim(), email.trim(), type.trim(), hashedPassword];
+        const { firstname, lastname, email,} = req.body
+        const values = [firstname.trim(), lastname.trim(), email.trim(), type, hashedPassword];
         try {
             const { rows } = await pool.query(newUserQuery, values);
             return rows

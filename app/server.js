@@ -2,6 +2,8 @@ import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import router from './routes';
+import swaggerUi from 'swagger-ui-express';
+import yaml from 'yamljs';
 
 
 dotenv.config();
@@ -11,6 +13,10 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+
+const swaggerDoc = yaml.load(`${process.cwd()}/swagger.yaml`);
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
 app.use('/api/v1', router);
 app.get('/', (req, res) => {
