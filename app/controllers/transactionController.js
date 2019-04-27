@@ -52,7 +52,7 @@ static async debitAccount(req, res) {
         }
         if ((+oldBalance) < (+amount)) {
             return res.status(409).json({
-                status: 409,
+                status: 404,
                 message: 'Insufficient funds',
             });
         }

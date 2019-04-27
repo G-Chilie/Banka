@@ -42,7 +42,6 @@ export default class AuthMiddleware {
   static isAdmin(req, res, next) {
     const payload = tokenBearer(req)
     const { isAdmin, type } = payload
-    // console.log(isAdmin)
     if (isAdmin && type.toLowerCase() === 'staff') {
       req.user = payload
       next()
@@ -57,7 +56,6 @@ export default class AuthMiddleware {
   static isCashier(req, res, next) {
     const payload = tokenBearer(req)
     const { isAdmin, type } = payload
-    // console.log(isAdmin)
     if (!isAdmin && type.toLowerCase() === 'staff') {
       req.user = payload
       next()
@@ -72,7 +70,6 @@ export default class AuthMiddleware {
   static isCustomer(req, res, next) {
     const payload = tokenBearer(req)
     const { isAdmin, type } = payload
-    console.log(isAdmin)
     if (!isAdmin && type.toLowerCase() === 'user') {
       req.user = payload
       next()

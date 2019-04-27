@@ -3,8 +3,8 @@ import pool from '../db'
 export default class AccountModel {
     static async create(req, res, userId) {
         const owner = userId;
-        const status = 'active'
-        const allowedTypes = ['savings', 'current']
+        const status = (+req.body.openingBalance) > 0 ? 'active' : 'draft'
+        const allowedTypes = ['savings', 'current'];
         const accountNo = Math.random().toString().slice(2, 11);
         const createdOn = new Date();
         const { type, openingBalance } = req.body;
@@ -13,9 +13,9 @@ export default class AccountModel {
                             RETURNING accountNo, createdOn, owner, type, openingBalance, status`;
         const values = [accountNo, createdOn, owner, type.trim(), status, openingBalance];
         if (!allowedTypes.includes(type)) {
-            return res.status(409).send({
-                status: 409,
-                error: 'invalid account type, must be either "savings" or "current"'
+            return res.status(403).send({
+                status: 403,
+                error: 'Forbidden, type must either be "savings" or "current"'
             })
         }
         try {
@@ -33,8 +33,8 @@ export default class AccountModel {
             const { rows } = await pool.query(query, values);
             if (!rows[0]) {
                 return res.status(200).send({
-                    status: 204,
-                    data: [],
+                    status: 404,
+                    error: 'not found',
                 });
             }
             return rows
@@ -90,8 +90,8 @@ export default class AccountModel {
             const { rows } = await pool.query(allAccountsQuery, values);
             if (!rows[0]) {
                 return res.status(200).send({
-                    status: 204,
-                    data: [],
+                    status: 404,
+                    error: 'notFound'
                 });
             }
             return rows
