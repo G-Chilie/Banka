@@ -147,14 +147,14 @@ describe('Admin', function () {
       res.body.should.have.property('data');
     });
 
-  //   it('Should return all active bank accounts with status 200', async () => {
-  //     const res = await chai
-  //       .request(app)
-  //       .get('/api/v1/accounts?status=active')
-  //       .set('authorization', adminBearerToken);
-  //     res.should.have.status(200);
-  //     res.body.should.have.property('data');
-  //   });
+    it('Should return all active bank accounts with status 200', async () => {
+      const res = await chai
+        .request(app)
+        .get('/api/v1/accounts?status=active')
+        .set('authorization', adminBearerToken);
+      res.should.have.status(200);
+      res.body.should.have.property('data');
+    });
   });
 
   describe('get a specific user accounts', () => {

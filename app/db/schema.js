@@ -44,6 +44,9 @@ const tables = {
   INSERT INTO
   users(firstname, lastname, email, type, password, isAdmin)
   VALUES('Bank', 'Admin', 'admin@gmail.com', 'staff', '${hashedPassword}', 'true') ;
+  INSERT INTO
+  users(firstname, lastname, email, type, password, isAdmin)
+  VALUES('Bank', 'Cashier', 'cashier@gmail.com', 'staff', '${hashedPassword}', 'false') ;
   `,
   testseeds: `
     INSERT INTO
@@ -61,6 +64,9 @@ const tables = {
     INSERT INTO 
     accounts(accountNo, owner, type, status, openingBalance)
     VALUES (123456789, 1, 'saving', 'active', 5000);
+    INSERT INTO 
+    accounts(accountNo, owner, type, status, openingBalance)
+    VALUES (123456489, 1, 'saving', 'active', 5000);
     INSERT INTO 
     transactions(type, accountNo, amount, cashier, accountBalance)  
     VALUES ('credit', 123456789, 5000, 2, 10000);
