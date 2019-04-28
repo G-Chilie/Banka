@@ -1,6 +1,6 @@
 import helpers from '../middleware/helpers';
 
-const hashedPassword = helpers.hashPassword('password')
+const hashedPassword = helpers.hashPassword('password');
 // Database Queries defining the structure of the Database
 const tables = {
   usersTable: `CREATE TABLE IF NOT EXISTS
@@ -76,9 +76,7 @@ const tables = {
     INSERT INTO 
     transactions(type, accountNo, amount, cashier, accountBalance)  
     VALUES ('credit', 123456789, 5000, 2, 5000);
-`
+`,
 };
 
 export default tables;
-
-

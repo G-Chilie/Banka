@@ -12,7 +12,7 @@ export default class AuthMiddleware {
   static async verifyToken(req, res, next) {
     const secret = process.env.SECRET || 'secret';
     const bearerToken = req.headers.authorization || '';
-    const token = bearerToken.split(' ')[1]
+    const token = bearerToken.split(' ')[1];
     if (!token) {
       return res.status(401).send({
         status: 401,
@@ -40,11 +40,11 @@ export default class AuthMiddleware {
   }
 
   static isAdmin(req, res, next) {
-    const payload = tokenBearer(req)
-    const { isAdmin, type } = payload
+    const payload = tokenBearer(req);
+    const { isAdmin, type } = payload;
     if (isAdmin && type.toLowerCase() === 'staff') {
-      req.user = payload
-      next()
+      req.user = payload;
+      next();
     } else {
       return res.status(401).json({
         status: 401,
@@ -54,11 +54,11 @@ export default class AuthMiddleware {
   }
 
   static isCashier(req, res, next) {
-    const payload = tokenBearer(req)
-    const { isAdmin, type } = payload
+    const payload = tokenBearer(req);
+    const { isAdmin, type } = payload;
     if (!isAdmin && type.toLowerCase() === 'staff') {
-      req.user = payload
-      next()
+      req.user = payload;
+      next();
     } else {
       return res.status(401).json({
         status: 401,
@@ -66,13 +66,29 @@ export default class AuthMiddleware {
       });
     }
   }
+
+  static isStaff(req, res, next) {
+    const payload = tokenBearer(req);
+    const { type } = payload;
+    if (type.toLowerCase() === 'staff') {
+      req.user = payload;
+      next();
+    } else {
+      return res.status(401).json({
+        status: 401,
+        error: 'Access denied',
+      });
+    }
+    return null;
+  }
+
 
   static isCustomer(req, res, next) {
-    const payload = tokenBearer(req)
-    const { isAdmin, type } = payload
+    const payload = tokenBearer(req);
+    const { isAdmin, type } = payload;
     if (!isAdmin && type.toLowerCase() === 'user') {
-      req.user = payload
-      next()
+      req.user = payload;
+      next();
     } else {
       return res.status(401).json({
         status: 401,
@@ -80,5 +96,4 @@ export default class AuthMiddleware {
       });
     }
   }
-};
-
+}

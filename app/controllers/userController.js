@@ -1,20 +1,23 @@
-import pool from '../db';
 import helpers from '../middleware/helpers';
-import userModel from '../models/userModel'
+import userModel from '../models/userModel';
 // import auth from '../middleware/auth';
 
 class UserController {
   static async createUser(req, res) {
     try {
-      const user = await userModel.create(req, res)
+      const user = await userModel.create(req, res);
       if (user.length) {
-        const { user_id, type, isadmin, email, firstname, lastname } = user[0]
+        const {
+          user_id, type, isadmin, email, firstname, lastname,
+        } = user[0];
         const userToken = helpers.generateToken(user_id, type, isadmin, email, firstname, lastname);
         return res.status(201).send({
           status: 201,
           data: [{
             token: userToken,
-            user: { user_id, firstname, lastname, email },
+            user: {
+              user_id, firstname, lastname, email,
+            },
           }],
         });
       }
@@ -32,7 +35,9 @@ class UserController {
       if (user.length) {
         const comparePassword = helpers.compareHashPassword(req.body.password, user[0].password, res);
         if (comparePassword) {
-          const { user_id, type, isadmin, email, firstname, lastname } = user[0]
+          const {
+            user_id, type, isadmin, email, firstname, lastname,
+          } = user[0];
           const userToken = helpers.generateToken(user_id, type, isadmin, email, firstname, lastname);
           return res.status(200).send({
             status: 200,
@@ -40,7 +45,9 @@ class UserController {
             data:
             {
               token: userToken,
-              user: { user_id, firstname, lastname, email },
+              user: {
+                user_id, firstname, lastname, email,
+              },
             },
           });
         }

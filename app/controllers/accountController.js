@@ -1,12 +1,11 @@
-import { tokenBearer } from '../middleware/auth';
-import accountModel from '../models/accountModel'
-import transactionModel from '../models/transactionModel'
+import accountModel from '../models/accountModel';
+import transactionModel from '../models/transactionModel';
 
 class AccountController {
   static async createAccount(req, res) {
     const { user } = req;
     try {
-      const account = await accountModel.create(req, res, user.userId)
+      const account = await accountModel.create(req, res, user.userId);
       if (account.length) {
         return res.status(201).send({
           status: 201,
@@ -45,7 +44,7 @@ class AccountController {
       if (details.length) {
         return res.status(200).send({
           status: 200,
-          data: details[0]
+          data: details[0],
         });
       }
     } catch (error) {
@@ -63,7 +62,7 @@ class AccountController {
       if (transaction.length) {
         return res.status(200).send({
           status: 200,
-          data: transaction[0]
+          data: transaction[0],
         });
       }
     } catch (error) {
