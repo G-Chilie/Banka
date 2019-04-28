@@ -1,7 +1,7 @@
 import pool from './index';
 import tables from './schema';
 
-(async function () {
+(async function migrate() {
   console.log('creating tables...');
   try {
     console.log('creating users table..');
@@ -12,7 +12,6 @@ import tables from './schema';
 
     console.log('creating transactions table..');
     await pool.query(tables.transactionsTable);
-
   } catch (error) {
     console.log(error);
   }

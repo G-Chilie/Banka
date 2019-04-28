@@ -11,10 +11,16 @@ import urlMiddleware from '../middleware/url';
 const router = express.Router();
 
 const { createUser, loginUser } = UserController;
-const { createAccount, getSingleUserTransactions, getSingleTransaction, accountDetails} = AccountController;
-const { ActivatOrDeactivateAccct, getAllAccounts, deleteAccount, creditAccount,
-  debitAccount, getUserAccounts } = TransactionController;
-const { verifyToken, isAdmin, isCashier, isCustomer } = Auth;
+const {
+  createAccount, getSingleUserTransactions, getSingleTransaction, accountDetails,
+} = AccountController;
+const {
+  ActivatOrDeactivateAccct, getAllAccounts, deleteAccount, creditAccount,
+  debitAccount, getUserAccounts,
+} = TransactionController;
+const {
+  verifyToken, isAdmin, isCashier, isCustomer, isStaff,
+} = Auth;
 
 const { verifyAccountNumber } = urlMiddleware;
 
@@ -31,11 +37,13 @@ router.get('/transactions/:transactionId', verifyToken, isCustomer, getSingleTra
 router.post('/transactions/:accountNumber/credit', verifyToken, isCashier, validate(schema.transactionsSchema), verifyAccountNumber, creditAccount);
 router.post('/transactions/:accountNumber/debit', verifyToken, isCashier, validate(schema.transactionsSchema), verifyAccountNumber, debitAccount);
 
+// cashier and admin routes
+router.patch('/accounts/:accountNumber', verifyToken, isStaff, validate(schema.activeDeactivateSchema), verifyAccountNumber, ActivatOrDeactivateAccct);
+router.get('/accounts', verifyToken, isStaff, getAllAccounts);
+router.get('/user/:userEmail/accounts', verifyToken, isStaff, getUserAccounts);
+
 // admin routes
-router.patch('/accounts/:accountNumber', verifyToken, isAdmin, validate(schema.activeDeactivateSchema), verifyAccountNumber, ActivatOrDeactivateAccct);
 router.delete('/accounts/:accountNumber', verifyToken, isAdmin, verifyAccountNumber, deleteAccount);
-router.get('/accounts', verifyToken, isAdmin, getAllAccounts);
-router.get('/user/:userEmail/accounts', verifyToken, isAdmin, getUserAccounts);
 
 
 export default router;

@@ -1,11 +1,10 @@
 import pool from './index';
 import tables from './schema';
 
-(async function () {
+(async function testSeed() {
   console.log('droping all tables...');
   try {
     await pool.query(tables.droptables);
-
   } catch (error) {
     console.log(error);
   }

@@ -1,9 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
-import router from './routes';
 import swaggerUi from 'swagger-ui-express';
 import yaml from 'yamljs';
+import router from './routes';
 
 dotenv.config();
 
@@ -23,12 +23,12 @@ app.get('/', (req, res) => {
     'Welcom to Banka',
   );
 });
-app.get('/*', (req, res)=>{
+app.get('/*', (req, res) => {
   res.status(404).send({
     status: 404,
     error: 'Not Found',
   });
-})
+});
 
 
 app.listen(PORT, () => {
