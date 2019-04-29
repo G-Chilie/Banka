@@ -17,9 +17,9 @@ const schema = {
       })),
   }),
 
-
+  // email({ minDomainAtoms: 2 })
   loginSchema: Joi.object().keys({
-    email: Joi.string().email({ minDomainAtoms: 2 }).required(),
+    email: Joi.string().required(),
     password: Joi.string().regex(/^[a-z0-9]+$/, 'letters and numbers only').min(5).required()
       .error(() => ({
         message: 'Invalid password, password can only be letters or numbers',
