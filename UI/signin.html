@@ -9,13 +9,25 @@
     href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
     rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/main.css">
   <title>Banka | Login</title>
 </head>
 
 <body>
+    <div class="navbar">
+        <a href="signin.html" class="navbar-title">Banka</a>
+    
+        <div class="menu">
+          <ul>
+            <li> <a href="admin-dashboard.html" class="menu-item">Admin login</a> </li>
+          </ul>
+        </div>
+      </div>
   <div class="auth-page">
+    
     <div class="auth-left">
-      <span class="auth-title">BANKA</span>
+     
+        
 
       <div class="auth-illustration">
         <img src="images/3 (1).jpg" alt="Login illustration">
@@ -30,16 +42,15 @@
 
       <div class="auth-details">
         <form onsubmit="login();" class="auth-form">
-          <input class="auth-input" type="text" name="firstname" id="firstname" placeholder="First name">
+          <input class="auth-input" type="text" name="firstname" id="firstname" placeholder="First name" required autofocus>
 
           <input class="auth-input" type="text" name="lastname" id="lastname" placeholder="Last name">
 
           <input class="auth-input" type="password" name="password" id="password" placeholder="Password">
 
-          <div id="signup-btn"><a href="dashboard.html">LOGIN</a></div>
-          <br>
-          <br>
-          <span class="auth-details-footer">Don't have an account? <a href="index.html">Signup</a> </span>
+          <div id="signup-btn"><a href="user-dashboard.html">LOGIN</a></div>
+          
+          <span class="auth-details-footer">Don't have an account? <a href="../index.html">Signup</a> </span>
 
         </form>
       </div>

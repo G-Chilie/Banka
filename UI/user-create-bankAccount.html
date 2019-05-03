@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link
+    href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900|Cormorant+Garamond:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Banka | Dashboard</title>
+  <script src="js/main.js"></script>
+
+</head>
+
+<body>
+
+  <div class="navbar">
+    <a href="signin.html" class="navbar-title">Banka</a>
+
+    <div class="menu">
+      <ul>
+        <li> <a href="user-dashboard.html" class="menu-item dashboard-menu">User Dashboard</a> </li>
+        <li> <a href="#" class="menu-item">Help</a> </li>
+        <li> <a href="signin.html" class="menu-item">Logout</a> </li>
+      </ul>
+    </div>
+  </div>
+
+
+  <div id="account" class="auth-right">
+    <span id="title">Create Bank Account</span>
+
+    <p>You can visit the branch close to you to withdraw or
+      deposit money..</p>
+
+    <div class="auth-details">
+      <form onsubmit="CreateAccount();" class="auth-form">
+
+        <input class="auth-input" type="text" name="Balance" id="Balance" placeholder="First Name">
+        <input class="auth-input" type="text" name="Balance" id="Balance" placeholder="Last Name">
+        <input class="auth-input" type="text" name="Balance" id="Balance" placeholder="Email">
+        <input class="auth-input" type="date" name="createdon" id="createdon" placeholder="Created On">
+
+        <div class="input-field">
+          <select class=" form-control " id="inlineFormCustomSelect">
+            <option value="" disabled selected>Type</option>
+            <option value="1">Savings</option>
+            <option value="2">Current</option>
+          </select>
+        </div>
+
+
+        <div id="signup-btn"><a href="user-dashboard.html">CREATE</a></div>
+        <br>
+
+      </form>
+    </div>
+  </div>
+
+
+</body>
+
+
+</html>
